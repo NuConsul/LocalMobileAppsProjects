@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <TextView
+        android:id="@+id/firstField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="First Field"/>
+
+    <TextView
+        android:id="@+id/secondField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Second Field"/>
+
+    <TextView
+        android:id="@+id/thirdField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Third Field"/>
+
+    <TextView
+        android:id="@+id/fourthField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Fourth Field"/>
+
+
+</LinearLayout>
