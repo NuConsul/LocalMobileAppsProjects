@@ -2,4 +2,4 @@
 Did not finish
 
 
-Could not complete task in the day.
+Did not complete task in the day alotted.
