@@ -13,17 +13,21 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 
-import com.chemwater.hwweek4day3.model.user.GitResponse;
+import com.chemwater.hwweek4day3.model.user.GitResponse ;
+import com.chemwater.hwweek4day3.R ;
+//import com.chemwater.hwweek4day3.model.Result ;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
     private static final String IMAGE_URL = "";
-    //List of beverages that will be populated into the recycler view
+
     ArrayList<GitResponse> gitResponsesArrayList;
+    //List<Result> resultList ;
 
     //Constructor for the Adapter
-    public MyRecyclerViewAdapter(ArrayList<GitResponse> gitResponsesArrayList) {
+    public MyRecyclerViewAdapter(GitResponse gitResponses) {
         this.gitResponsesArrayList = gitResponsesArrayList;
     }
 
@@ -43,43 +47,32 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         //Get the item's information which we wish to populate for that viewholder
-        GitResponse currentGitResponsesBeingPopulated = gitResponsesArrayList.get(position);
+        GitResponse currentGitResponsesBeingPopulated = gitResponsesArrayList.get(position) ;
+
+        //Result result = resultList.get(i) ;
+        //viewHolder.tvEmail.setText(result.getEmail()) ;
         //use the passed viewholder to access the items view and populate
         viewHolder.tvEmail.setText(currentGitResponsesBeingPopulated.getEmailsUrl());
         viewHolder.tvEmoji.setText(currentGitResponsesBeingPopulated.getEmojisUrl());
         viewHolder.tvEvent.setText(currentGitResponsesBeingPopulated.getEventsUrl());
         viewHolder.tvFeed.setText(currentGitResponsesBeingPopulated.getFeedsUrl());
 
-        //Using glide to associate the web resourced image to our imageView
-        /*
-        Glide
-                .with(viewHolder.itemView.getContext())
-                .load("https://images.freeimages.com/images/large-previews/25d/eagle-1523807.jpg")
-                .into(viewHolder.imgMeme);*/
-
 
         Log.d("TAG", "onBindViewHolder: item being rendered = " + position);
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(v.getContext(), beveragesArrayList.get(position).getName() + "clicked", Toast.LENGTH_SHORT).show();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("bev", gitResponsesArrayList.get(position));
-            }
-        });
     }
 
     //Add to list, notify the adapter that the info in the list has changed
-    public void addGetResponseToList(GitResponse gitResponse) {
+    /*public void addGetResponseToList(GitResponse gitResponse) {
         gitResponsesArrayList.add(gitResponse);
         notifyDataSetChanged();
-    }
+    }*/
 
 
     @Override
     public int getItemCount() {
         return gitResponsesArrayList.size();
+        //return resultList.size() ;
     }
 
 

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.chemwater.hwweek4day3.model.datasource.remote.RetrofitHelper;
 import com.chemwater.hwweek4day3.model.user.GitResponse;
 
 import java.util.ArrayList;
@@ -54,47 +55,36 @@ public class MainActivity extends AppCompatActivity {
                 .commit() ;
 
 
-        //RetrofitHelper retrofitHelper = new RetrofitHelper();
-        //Start Retrofit in a async way to get our pojo response
-
-
-
-
-        //Bind RecyclerView
-        recyclerView = findViewById(R.id.rvRecyclerView);
-
-        //Recycler View needs 2 items
-        //  1. Layout Manager (Can be customized, but we generally us a default
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-
-
-
-
-        //  2.RecyclerView adapter (We write this)
-        myRecyclerViewAdapter = new MyRecyclerViewAdapter(generateListOfGitUsers());
-        recyclerView.setAdapter(myRecyclerViewAdapter);
-
+        RetrofitHelper retrofitHelper = new RetrofitHelper();
     }
 
 
-
-
-    private ArrayList<GitResponse> generateListOfGitUsers() {
-        ArrayList<GitResponse> gitResponsesArrayList = new ArrayList<>();
-        gitResponsesArrayList.add(new GitResponse()) ;
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-        gitResponsesArrayList.add(new GitResponse());
-
-        return gitResponsesArrayList ;
-    }
 
 }
+
+
+
+/*
+1. Create an application with two screen
+ -Screen one: should have your Github profile. Use at least 4
+ fields from the response to update the views.
+ -Screen 2: Populate the recyclerView with the repositories
+ you get from your profile. Use at least 3
+ fields in each item view.
+2. You MUST use retrofit
+
+
+https://developer.github.com/v3/repos/
+
+https://developer.github.com/v3
+
+
+
+Repositories
+https://developer.github.com
+
+GitHub API v3
+https://developer.github.com
+
+
+ */
